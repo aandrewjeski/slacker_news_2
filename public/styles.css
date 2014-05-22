@@ -1,0 +1,142 @@
+img {
+  display: block;
+}
+
+body {
+  width: 85%;
+  font-family: Verdana;
+  font-size: .8em;
+  margin-left: auto;
+  margin-right: auto;
+}
+header {
+  background-color: #ff6600;
+  padding: 2px;
+  /*height: 20px;*/
+}
+
+span {
+  color: black;
+  font-size: 1.5em;
+}
+
+.form span {
+  color: red;
+  font-size: .8em;
+}
+
+ol li p {
+  color: gray;
+  font-size: .75em;
+}
+
+ol li p:nth-child(2) {
+  font-size: .75em;
+  margin-top: -10px;
+  margin-left: 15px;
+}
+ol li p:nth-child(3) {
+  font-size: .6em;
+  margin-top: -10px;
+  color: black;
+  margin-left: 23px;
+}
+
+ol li a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.5em;
+}
+
+.arrow{
+  display:inline;
+}
+
+
+#brand {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+
+}
+
+#login {
+  float: right;
+  text-decoration: none;
+  color: black;
+  padding-top: 2px;
+  padding-right: 2px;
+}
+
+#logo-image {
+  border : 1px white solid;
+}
+
+
+
+.navigation {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 90%;
+}
+
+.navigation li {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.nav-link {
+  border-right: 1px solid black;
+  padding-right: 8px;
+  padding-left: 3px;
+  text-decoration: none;
+  color: black;
+}
+
+.nav-link-last {
+  padding-right: 8px;
+  padding-left: 3px;
+  text-decoration: none;
+  color: black;
+}
+
+/* This if or my body */
+
+.main-container {
+  margin-top: 0px;
+  background-color: #f6f6ef;
+  padding: 4px;
+}
+
+.links {
+  color: gray;
+}
+
+
+/* THIS IS FOR OUR FORM */
+
+
+.form {
+  width: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
