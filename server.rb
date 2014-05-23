@@ -1,8 +1,4 @@
-require 'sinatra'
 require 'csv'
-require 'shotgun'
-require 'pry'
-require 'redis'
 
 def get_connection
   if ENV.has_key?("REDISCLOUD_URL")
