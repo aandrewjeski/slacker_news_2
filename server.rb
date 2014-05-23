@@ -1,4 +1,5 @@
 require 'csv'
+require 'sinatra'
 
 def get_connection
   if ENV.has_key?("REDISCLOUD_URL")
