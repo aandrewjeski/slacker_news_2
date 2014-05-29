@@ -1,40 +1,30 @@
-require 'json'
+require 'pg'
 require 'sinatra'
-require 'redis'
 
-def get_connection
-  if ENV.has_key?("REDISCLOUD_URL")
-    Redis.new(url: ENV["REDISCLOUD_URL"])
-  else
-    Redis.new
+require 'pg'
+
+def db_connection
+  begin
+    connection = PG.connect(dbname: 'slacer_news')
+
+    yield(connection)
+
+  ensure
+    connection.close
   end
 end
 
 def find_articles
-  redis = get_connection
-  serialized_articles = redis.lrange("slacker:articles", 0, -1)
 
-  articles = []
-
-  serialized_articles.each do |article|
-    articles << JSON.parse(article, symbolize_names: true)
-  end
-
-  articles
 end
 
-def save_article(url, title, description, name)
-  article = { url: url, title: title, description: description, name: name }
-
-  redis = get_connection
-  redis.rpush("slacker:articles", article.to_json)
-end
 
 def article_exists(params)
   errors = []
-  articles = find_articles
+  articles_pg = db_connection("SELECT * FROM articles;")
+  articles = articles_pg.to_a
   articles.each do |article|
-    if article[:url] == params
+    if article['url'] == params
       errors << 1
     end
   end
@@ -43,7 +33,8 @@ end
 
 
 get '/' do
-@articles = find_articles
+@articles = db_connection("SELECT * FROM articles;")
+@articles = @articles.to_a
 
 erb :home
 end
@@ -62,7 +53,7 @@ post '/new' do
 
     erb :new
   else
-    save_article(params[:url],params[:new_article],params[:description], params[:name])
+    PLACEHOLDER(params[:url],params[:new_article],params[:description], params[:name])
 
     redirect '/'
   end
