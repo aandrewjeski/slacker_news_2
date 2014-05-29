@@ -28,7 +28,7 @@
             <p><img class = "arrow" src = "grayarrow.gif">
             <a href=<%="#{article['url']}"%>><%="#{article['headline']}"%></a></p>
             <p><%="#{article['description']}" %>
-            <p>posted by: <%="#{article['name']}" %></p>
+            <p>posted by: <%="#{article['name']}" %> | <a href="/articles/<%= "#{article['id']}" %>/comments">comments</a></p>
           </li>
 
         <% end %>

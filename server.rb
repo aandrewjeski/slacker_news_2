@@ -55,8 +55,23 @@ post '/new' do
 
     erb :new
   else
-    PLACEHOLDER(params[:url],params[:new_article],params[:description], params[:name])
+    url = params[:url]
+    headline = params[:new_article]
+    description = params[:description]
+    name = params[:name]
+    insert = ("INSERT INTO articles (name, headline, url, description) VALUES ($1, $2, $3, $4);")
+    articles_pg = db_connection do |conn|
+    conn.exec_params(insert, [name , headline, url, description])
+    end
 
     redirect '/'
   end
+end
+
+get '/articles/:id/comments' do
+  @articles = db_connection do |conn|
+    conn.exec("SELECT * FROM articles WHERE id = '#{params[:id]}';")
+  end
+@articles = @articles.to_a
+erb :comments
 end

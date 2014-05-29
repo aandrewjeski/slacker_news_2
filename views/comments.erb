@@ -10,8 +10,8 @@
     <header>
     <ul class="navigation">
       <li><img id = "logo-image" src = "y18.gif"></li>
-      <li><a id = "brand" href = "#">Hacker News</a></li>
-      <li><a class = "nav-link" href = "#">new</a></li>
+      <li><a id = "brand" href = "/">Hacker News</a></li>
+      <li><a class = "nav-link" href = "/new">new</a></li>
       <li><a class = "nav-link" href = "#">comments</a></li>
       <li><a class = "nav-link" href = "#">ask</a></li>
       <li><a class = "nav-link" href = "#">jobs</a></li>
@@ -19,15 +19,12 @@
       <a id = 'login' href = "#">login</a>
     </ul>
     </header>
-    <div class = "main-container">
-      <ol class = "links">
-        <li>
-          <p><img class = "arrow" src = "grayarrow.gif">
-          <a href="https://www.firebase.com/blog/2013-08-15-firebase-leaves-beta-today.html">Firebase Leaves Beta Today</a>(boeing.com)</p>
-          <p>63 points by lyime 56 minutes ago | 17 comments</p>
-        </li>
 
-      </ol>
+    <!--This is our link list -->
+    <div class = "main-container">
+
+      <%= @articles.first %>
+
 
     </div>
   </body>
