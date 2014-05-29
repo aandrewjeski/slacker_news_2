@@ -26,9 +26,9 @@
         <% @articles.each do |article|   %>
           <li>
             <p><img class = "arrow" src = "grayarrow.gif">
-            <a href=<%="#{article[:url]}"%>><%="#{article[:title]}"%></a></p>
-            <p><%="#{article[:description]}" %>
-            <p>posted by: <%="#{article[:name]}" %></p>
+            <a href=<%="#{article['url']}"%>><%="#{article['headline']}"%></a></p>
+            <p><%="#{article['description']}" %>
+            <p>posted by: <%="#{article['name']}" %></p>
           </li>
 
         <% end %>
