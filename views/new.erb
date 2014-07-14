@@ -24,16 +24,7 @@
     <div class = "main-container">
       <div class = "form">
         <form action="/new" method="post">
-          <label for="new_article">Name:</label>
-          <input type="text" id="new_article" name="name" value="<%= params[:name] %>" size="40" required/>
-          <label for="new_article">Article Headline:</label>
-          <input type="text" id="new_article" name="new_article" size="40" required value="<%= params[:new_article] %>"/>
-          <label for="new_article">URL:<span><%= @url_exists %></span></label>
-          <input type="url" required pattern="http://.+" required title="requires http://"  id="new_article" name="url" size="40" value="<%= @url %>"/>
-          <label for="new_article">Description:</label>
-          <input pattern=".{20,}" required title="20 character minimum" type="text" id="new_article" name="description" size = "40" maxlength="140" value="<%= params[:description] %>"></textarea>
 
-          <input type="submit" />
         </form>
       </div>
 
